@@ -43,7 +43,7 @@ func newApp(confServer *conf.Server) *kratos.App {
 	sample.RegisterRepo(data.NewAuthRepo())
 	probeService := service.NewProbeService()
 	authService := service.NewSampleService()
-	adminService := service.NewAdminService()
+	portalService := service.NewPortalService()
 
 	return kratos.New(
 		kratos.ID(id),
@@ -53,7 +53,7 @@ func newApp(confServer *conf.Server) *kratos.App {
 		kratos.Server(
 			server.NewGRPCServer(confServer, probeService, authService),
 			server.NewHTTPServer(confServer, probeService, authService),
-			server.NewPortalHTTPServer(confServer, adminService),
+			server.NewPortalHTTPServer(confServer, portalService),
 		),
 	)
 }

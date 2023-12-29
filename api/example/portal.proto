@@ -8,11 +8,11 @@ import "google/protobuf/struct.proto";
 
 option go_package               = "kratos-layout/api/example;example";
 
-// The Admin service definition.
-service Admin {
+// The Portal service definition.
+service Portal {
   rpc nothing (google.protobuf.Empty) returns (google.protobuf.Empty) {
     option (google.api.http)    = {
-      get: "/admin/nothing"
+      get: "/portal/nothing"
     };
   }
 }

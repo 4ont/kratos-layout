@@ -33,7 +33,7 @@ func NewHTTPServer(c *conf.Server,
 	middlewares := kratostune.PrepareMiddleWare()
 	middlewares = append(middlewares,
 		selector.Server( //jwt中间件
-			kratostune.NewJWTServerMidware(kratostune.NewJWT(c.GetAuth().GetJwtKey(), 0), bizauth.OptionalAuthAPI),
+			kratostune.NewJWTServerMidware(kratostune.NewJWT(c.GetAuth().GetJwtKey(), 0)),
 		).Match(bizauth.NewWhiteListMatcher()).Build(),
 	)
 	opts = append(opts, http.Middleware(middlewares...))

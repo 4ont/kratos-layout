@@ -6,15 +6,6 @@ info:
     title: ""
     version: 0.0.1
 paths:
-    /admin/nothing:
-        get:
-            tags:
-                - Admin
-            operationId: Admin_Nothing
-            responses:
-                "200":
-                    description: OK
-                    content: {}
     /are/you/ready:
         get:
             tags:
@@ -38,6 +29,15 @@ paths:
                 - Probe
             description: for liveness probe
             operationId: Probe_Healthy
+            responses:
+                "200":
+                    description: OK
+                    content: {}
+    /portal/nothing:
+        get:
+            tags:
+                - Portal
+            operationId: Portal_Nothing
             responses:
                 "200":
                     description: OK
@@ -77,8 +77,8 @@ components:
                 status:
                     type: string
 tags:
-    - name: Admin
-      description: The Admin service definition.
+    - name: Portal
+      description: The Portal service definition.
     - name: Probe
       description: The probe service definition.
     - name: Sample

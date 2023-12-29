@@ -16,7 +16,6 @@ var (
 
 type AuthRepo interface {
 	CheckEmailSignupStatus(ctx context.Context, email string) (registered bool, err error)
-	ValidAdminToken(ctx context.Context, token string) (*Administrator, error)
 }
 
 type checkSignupStatusType string

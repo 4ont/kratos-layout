@@ -11,18 +11,6 @@ import (
 // is compatible with the kratos package it is being compiled against.
 const _ = errors.SupportPackageIsVersion1
 
-func IsUnspecified(err error) bool {
-	if err == nil {
-		return false
-	}
-	e := errors.FromError(err)
-	return e.Reason == ErrorReason_UNSPECIFIED.String() && e.Code == 200
-}
-
-func ErrorUnspecified(format string, args ...interface{}) *errors.Error {
-	return errors.New(200, ErrorReason_UNSPECIFIED.String(), fmt.Sprintf(format, args...))
-}
-
 func IsSuccess(err error) bool {
 	if err == nil {
 		return false
