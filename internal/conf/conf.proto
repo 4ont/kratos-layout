@@ -1,0 +1,74 @@
+syntax = "proto3";
+package kratos.api;
+
+option go_package = "kratos-layout/internal/conf;conf";
+
+import "google/protobuf/duration.proto";
+
+message Bootstrap {
+  Server server    = 1;
+  Data data        = 2;
+  string log_level = 3; // debug, info, warn, error, fatal, panic
+  Tracing tracing  = 4;
+  string env       = 5;
+  Sentry sentry    = 6;
+}
+
+message Server {
+  message HTTP {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  HTTP http   = 1;
+  GRPC grpc   = 2;
+  HTTP portal = 3;
+  Auth auth   = 4;
+}
+
+message Data {
+  message Database {
+    string driver               = 1;
+    string dsn                  = 2;
+    repeated string slaves_dsn  = 3;
+    string name                 = 4;
+    int32 max_open_connections  = 5;
+    int32 max_idle_connections  = 6;
+    google.protobuf.Duration conn_max_lifetime     = 7;
+    google.protobuf.Duration conn_max_idle_time    = 8;
+  }
+  message Redis {
+    bool is_cluster                        = 1;
+    repeated string addrs                  = 2;
+    google.protobuf.Duration read_timeout  = 3;
+    google.protobuf.Duration write_timeout = 4;
+    int32 db                               = 5;
+    string username                        = 6;
+    string password                        = 7;
+    uint32 pool_size                       = 8;
+    uint32 min_idle_conn                   = 9;
+  }
+
+  Database database = 1;
+  Redis redis = 2;
+}
+
+message Tracing {
+  string host = 1;
+  int32 port  = 2;
+  string type = 3;
+}
+
+message Sentry {
+  string dsn = 1;
+  bool attach_stack_trace = 2;
+}
+
+message Auth {
+  string jwt_key = 1;
+}

@@ -1,0 +1,12 @@
+resources:
+  - ../../base
+namespace: taskon-dev
+configMapGenerator:
+  - name: kratos-layout
+    behavior: replace
+    files:
+      - config.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+patches:
+  - path: deployment.yaml

@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kratos-layout
+  namespace: my_namespace
+  labels:
+    app: kratos-layout
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: kratos-layout
+  template:
+    metadata:
+      labels:
+        app: kratos-layout
+    spec:
+      serviceAccountName: access-aws
+      containers:
+        - name: kratos-layout-container
+          image: 302759042447.dkr.ecr.ap-southeast-1.amazonaws.com/kratos-layout:latest
+          ports:
+            - containerPort: 8000
+              name: http
+            - containerPort: 9000
+              name: grpc
+            - containerPort: 20000
+              name: portal
+          volumeMounts:
+            - name: conf
+              mountPath: "/data/conf/config.yaml"
+              subPath: config.yaml
+              readOnly: true
+          env:
+            - name: HOST_ADDR
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: 8000
+            failureThreshold: 1
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /are/you/ready
+              port: 8000
+            initialDelaySeconds: 2
+            periodSeconds: 10
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 200m
+            limits:
+              memory: 2Gi
+              cpu: 1000m
+      volumes:
+        - name: conf
+          configMap:
+            name: kratos-layout
+            items:
+              - key: config.yaml
+                path: config.yaml

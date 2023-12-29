@@ -1,0 +1,29 @@
+syntax                          = "proto3";
+
+package example;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+option go_package               = "kratos-layout/api/example;example";
+
+// The greeting service definition.
+service sample {
+  // Sends a greeting
+  rpc CheckSignupStatus (CheckSignupStatusRequest) returns (CheckSignupStatusResponse) {
+    option (google.api.http)    = {
+      get: "/sample/signup/status"
+    };
+  }
+}
+
+
+message CheckSignupStatusRequest {
+  string type   = 1; // email
+  string value  = 2;
+}
+
+message CheckSignupStatusResponse {
+  bool registered                 = 1;
+}

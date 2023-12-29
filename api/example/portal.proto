@@ -1,0 +1,19 @@
+syntax                          = "proto3";
+
+package example;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+option go_package               = "kratos-layout/api/example;example";
+
+// The Admin service definition.
+service Admin {
+  rpc nothing (google.protobuf.Empty) returns (google.protobuf.Empty) {
+    option (google.api.http)    = {
+      get: "/admin/nothing"
+    };
+  }
+}
+

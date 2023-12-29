@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kratos-layout
+  namespace: taskon-dev
+  labels:
+    app: kratos-layout
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: kratos-layout-container
+          image: {{.img_version}}
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 200m

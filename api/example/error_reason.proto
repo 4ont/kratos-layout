@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "errors/errors.proto";
+
+package example;
+
+option go_package = "kratos-layout/api/example;example";
+
+enum ErrorReason {
+  // 设置缺省错误码
+  option (errors.default_code) = 200;
+
+  Success             = 0;
+  InvalidParameters   = 4100;
+  NotAuthorized       = 4200;
+  TooManyRequests     = 4300;
+  ServerInternalError = 5000;
+}

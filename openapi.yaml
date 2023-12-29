@@ -1,0 +1,85 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /admin/nothing:
+        get:
+            tags:
+                - Admin
+            operationId: Admin_Nothing
+            responses:
+                "200":
+                    description: OK
+                    content: {}
+    /are/you/ready:
+        get:
+            tags:
+                - Probe
+            description: |-
+                for readiness probe
+                 这里示范使用 google.protobuf.Struct 从gin这样的web框架迁移代码直接重用原来的接口struct定义
+                 避免从go struct到pb message的转换。
+                 不过，还是建议使用pb来定义接口, 这样接口更易于维护
+            operationId: Probe_Ready
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/probe.ReadinessProbeResponse'
+    /healthy:
+        get:
+            tags:
+                - Probe
+            description: for liveness probe
+            operationId: Probe_Healthy
+            responses:
+                "200":
+                    description: OK
+                    content: {}
+    /sample/signup/status:
+        get:
+            tags:
+                - Sample
+            description: Sends a greeting
+            operationId: Sample_CheckSignupStatus
+            parameters:
+                - name: type
+                  in: query
+                  schema:
+                    type: string
+                - name: value
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/example.CheckSignupStatusResponse'
+components:
+    schemas:
+        example.CheckSignupStatusResponse:
+            type: object
+            properties:
+                registered:
+                    type: boolean
+        probe.ReadinessProbeResponse:
+            type: object
+            properties:
+                status:
+                    type: string
+tags:
+    - name: Admin
+      description: The Admin service definition.
+    - name: Probe
+      description: The probe service definition.
+    - name: Sample
+      description: The greeting service definition.

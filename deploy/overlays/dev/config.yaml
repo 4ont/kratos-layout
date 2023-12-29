@@ -1,0 +1,34 @@
+env: dev
+log_level: debug
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 15s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 15s
+  portal:
+    addr: 0.0.0.0:20000
+    timeout: 15s
+  auth:
+    jwt_key: "MjZiMjZhMTUtZDUzYi00ZjNlLWIxNzEtMmFhZGJjYmI4OWU2"
+data:
+  database:
+    driver: "postgres"
+    dsn: "host=127.0.0.1 port=5432 user=postgres password=nS&v!nNu39Wm67dXK dbname=dev sslmode=disable TimeZone=Asia/Shanghai"
+    name: "default"
+    max_open_connections: 20
+    max_idle_connections: 10
+    conn_max_lifetime: 360s
+    conn_max_idle_time: 180s
+  redis:
+    addrs:
+      - "127.0.0.1:6379"
+    db: 1
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+tracing:
+  host: "127.0.0.1"
+  #port: "6831"
+  port: "4317"
+  type: "OTLP" # OTLP  /  jaeger
