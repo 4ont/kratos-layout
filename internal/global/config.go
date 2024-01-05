@@ -27,14 +27,8 @@ func GetConfig() *conf.Bootstrap {
 	return cnf
 }
 
-func InitConfig(confSrc, confPath string) (clean func()) {
-	var src config.Source
-	switch confSrc {
-	case "file":
-		src = file.NewSource(confPath)
-	default:
-		panic("unknown config source")
-	}
+func InitConfig(confPath string) (clean func()) {
+	src := file.NewSource(confPath)
 	// 加载配置
 	c := config.New(
 		config.WithSource(src),

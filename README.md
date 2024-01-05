@@ -112,7 +112,6 @@ docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf 
 ## Config
 支持多种配置数据源：
 - 本地配置文件
-- aws appconfig
 
 ### local config
 通过命令行参数来指定配置源：
@@ -120,21 +119,8 @@ docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf 
 Usage of ./bin/kratos-layout:
   -conf string
         config path, eg: -conf config.yaml (default "../../configs")
-  -conf-src string
-        config source, eg: -conf-src aws-appconfig (default "file")
 
 ```
-conf-src 默认为: file, 将 conf参数指定的路径读取配置文件
-
-当conf-src为 aws-appconfig 时，会从以下环境变量读取aws appconfig的元配置信息以便连接到appconfig服务
-- AWS_REGION=ap-southeast-1
-- AWS_ROLE_ARN=arn:aws:iam::302759042447:role/eks_aws_access_role
-- AWS_WEB_IDENTITY_TOKEN_FILE=/var/run/secrets/eks.amazonaws.com/serviceaccount/token
-- AWS_ENVIRONMENT=t2etu44
-- AWS_CONFIGURATION_ID=1a37jep
-- AWS_APPLICATION_ID=o7i5bvr
-
-AWS_WEB_IDENTITY_TOKEN_FILE指定的aws identity token内容在本地的保存路径, **根据实际情况修改以上示例的值**
 
 
 ---

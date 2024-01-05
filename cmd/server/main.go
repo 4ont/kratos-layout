@@ -27,15 +27,12 @@ var (
 	Version string
 	// flagconf is the config flag.
 	flagconf string
-	// flagconfsrc is the config source flag.
-	flagconfsrc string
 
 	id, _ = os.Hostname()
 )
 
 func init() {
 	flag.StringVar(&flagconf, "conf", "../../configs", "config path, eg: -conf config.yaml")
-	flag.StringVar(&flagconfsrc, "conf-src", "file", "config source, eg: -conf-src aws-appconfig")
 	flag.Usage = usage
 }
 
@@ -62,7 +59,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	cleanconf := global.InitConfig(flagconfsrc, flagconf)
+	cleanconf := global.InitConfig(flagconf)
 	defer cleanconf()
 	bc := global.GetConfig()
 	os.Setenv("ENV", bc.Env)
