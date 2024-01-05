@@ -5,9 +5,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/4ont/kratos-layout/internal/biz/sample"
-	"github.com/4ont/kratos-layout/internal/data/model"
-	"github.com/4ont/kratos-layout/internal/data/postgres"
+	"github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/model"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/postgres"
 )
 
 const (

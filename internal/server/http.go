@@ -1,16 +1,16 @@
 package server
 
 import (
-	"github.com/4ont/kit/go/kratostune"
+	"github.com/Taskon-xyz/kit/go/kratostune"
 	"github.com/go-kratos/kratos/v2/middleware/selector"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"github.com/4ont/kratos-layout/api/_pb/example"
-	probeapi "github.com/4ont/kratos-layout/api/_pb/probe"
-	bizauth "github.com/4ont/kratos-layout/internal/biz/sample"
-	"github.com/4ont/kratos-layout/internal/conf"
-	"github.com/4ont/kratos-layout/internal/service"
+	"github.com/Taskon-xyz/kratos-layout/api/_pb/example"
+	probeapi "github.com/Taskon-xyz/kratos-layout/api/_pb/probe"
+	bizauth "github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/service"
 )
 
 // NewHTTPServer new an HTTP server.

@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	pb "github.com/4ont/kratos-layout/api/_pb/example"
+	pb "github.com/Taskon-xyz/kratos-layout/api/_pb/example"
 )
 
 type PortalService struct {

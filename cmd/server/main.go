@@ -9,14 +9,14 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	_ "go.uber.org/automaxprocs"
 
-	"github.com/4ont/kit/go/kratostune"
+	"github.com/Taskon-xyz/kit/go/kratostune"
 
-	"github.com/4ont/kratos-layout/internal/biz/sample"
-	"github.com/4ont/kratos-layout/internal/conf"
-	"github.com/4ont/kratos-layout/internal/data"
-	"github.com/4ont/kratos-layout/internal/global"
-	"github.com/4ont/kratos-layout/internal/server"
-	"github.com/4ont/kratos-layout/internal/service"
+	"github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/data"
+	"github.com/Taskon-xyz/kratos-layout/internal/global"
+	"github.com/Taskon-xyz/kratos-layout/internal/server"
+	"github.com/Taskon-xyz/kratos-layout/internal/service"
 )
 
 // go build -ldflags "-X main.Version=x.y.z"

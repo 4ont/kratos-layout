@@ -9,7 +9,7 @@ import (
 	"github.com/redis/go-redis/extra/redisotel/v9"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/4ont/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
 )
 
 // common variables

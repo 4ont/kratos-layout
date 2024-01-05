@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-kratos/kratos/v2/log"
 
-	"github.com/4ont/kratos-layout/api/_pb/example"
-	"github.com/4ont/kratos-layout/internal/biz/sample"
+	"github.com/Taskon-xyz/kratos-layout/api/_pb/example"
+	"github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
 )
 
 // SampleService is an sample service.

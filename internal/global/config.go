@@ -6,7 +6,7 @@ import (
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
 
-	"github.com/4ont/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
 )
 
 var (

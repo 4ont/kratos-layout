@@ -3,9 +3,9 @@ package data
 import (
 	"github.com/go-kratos/kratos/v2/log"
 
-	"github.com/4ont/kratos-layout/internal/conf"
-	"github.com/4ont/kratos-layout/internal/data/postgres"
-	"github.com/4ont/kratos-layout/internal/data/redis"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/postgres"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/redis"
 )
 
 // InitData .

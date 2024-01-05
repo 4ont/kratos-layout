@@ -1,7 +1,7 @@
 package postgres
 
 import (
-	"github.com/4ont/kit/go/kratostune"
+	"github.com/Taskon-xyz/kit/go/kratostune"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"
@@ -10,7 +10,7 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/pkg/errors"
 
-	"github.com/4ont/kratos-layout/internal/conf"
+	"github.com/Taskon-xyz/kratos-layout/internal/conf"
 )
 
 var (

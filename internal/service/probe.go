@@ -9,8 +9,8 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	probeapi "github.com/4ont/kratos-layout/api/_pb/probe"
-	"github.com/4ont/kratos-layout/internal/biz/probe"
+	probeapi "github.com/Taskon-xyz/kratos-layout/api/_pb/probe"
+	"github.com/Taskon-xyz/kratos-layout/internal/biz/probe"
 )
 
 // ProbeService is a probe service.
