@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	_ "go.uber.org/automaxprocs"
 
 	"github.com/Taskon-xyz/kit/go/kratostune"
@@ -65,7 +66,12 @@ func main() {
 	os.Setenv("ENV", bc.Env)
 
 	// 初始化日志
-	kratostune.InitLogger(Name, Version, bc.LogLevel)
+	var sinkConf *kratostune.SinkConfig
+	if bc.LogSink != nil {
+		sinkConf = new(kratostune.SinkConfig)
+		copier.Copy(&sinkConf, bc.LogSink)
+	}
+	kratostune.InitLogger(Name, Version, bc.LogLevel, sinkConf)
 	// 初始化分布式追踪
 	err := kratostune.SetTracerProvider(bc.Tracing.GetType(), bc.Tracing.GetHost(), int(bc.Tracing.GetPort()),
 		Name, Version, bc.Env)

@@ -12,6 +12,7 @@ message Bootstrap {
   Tracing tracing  = 4;
   string env       = 5;
   Sentry sentry    = 6;
+  Kafka log_sink = 8;
 }
 
 message Server {
@@ -71,4 +72,12 @@ message Sentry {
 
 message Auth {
   string jwt_key = 1;
+}
+
+message Kafka {
+  repeated string brokers = 1;
+  string  topic = 2;
+  string username = 3;
+  string password = 4;
+  bool enable_sasl = 5;
 }
