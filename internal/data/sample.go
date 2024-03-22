@@ -7,7 +7,7 @@ import (
 
 	"github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
 	"github.com/Taskon-xyz/kratos-layout/internal/data/model"
-	"github.com/Taskon-xyz/kratos-layout/internal/data/postgres"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/mysql"
 )
 
 const (
@@ -22,7 +22,7 @@ func NewAuthRepo() sample.AuthRepo {
 }
 
 func (a *AuthRepo) CheckEmailSignupStatus(ctx context.Context, email string) (registered bool, err error) {
-	pgdb := postgres.GetDB().WithContext(ctx)
+	pgdb := mysql.GetDB().WithContext(ctx)
 	user, err := model.User{}.SelectOneByEmail(pgdb, email)
 	if err != nil {
 		errors.Wrap(err, "query user by email")

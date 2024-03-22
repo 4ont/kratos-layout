@@ -4,13 +4,13 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 
 	"github.com/Taskon-xyz/kratos-layout/internal/conf"
-	"github.com/Taskon-xyz/kratos-layout/internal/data/postgres"
+	"github.com/Taskon-xyz/kratos-layout/internal/data/mysql"
 	"github.com/Taskon-xyz/kratos-layout/internal/data/redis"
 )
 
 // InitData .
 func InitData(c *conf.Data) (func(), error) {
-	cleanDB, err := postgres.InitDBConnections(c.GetDatabase())
+	cleanDB, err := mysql.InitDBConnections(c.GetDatabase())
 	if err != nil {
 		return nil, err
 	}

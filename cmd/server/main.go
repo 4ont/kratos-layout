@@ -11,7 +11,6 @@ import (
 	_ "go.uber.org/automaxprocs"
 
 	"github.com/Taskon-xyz/kit/go/kratostune"
-
 	"github.com/Taskon-xyz/kratos-layout/internal/biz/sample"
 	"github.com/Taskon-xyz/kratos-layout/internal/conf"
 	"github.com/Taskon-xyz/kratos-layout/internal/data"
